@@ -11,64 +11,74 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <i class="fa fa-store logo-icon"></i>
-                <h2>Ventas</h2>
+                <h2>Tienda</h2>
             </div>
             <nav>
                 <ul>
-                    <li><i class="fa fa-home"></i> Inicio</li>
-                    <li><i class="fa fa-chart-pie"></i> Reportes</li>
-                    <li><i class="fa fa-cog"></i> Configuración</li>
+                    <li class="nav-item active" data-page="home"><i class="fa fa-home"></i> Inicio</li>
+                    <li class="nav-item" data-page="report"><i class="fa fa-chart-pie"></i> Reportes</li>
                 </ul>
             </nav>
         </aside>
 
         <!-- Contenido principal -->
         <main class="main-content">
-            <h1>Reporte de Ventas Mensuales</h1>
+            <!-- Pantalla de inicio -->
+            <section id="home" class="page active">
+                <h1>Bienvenido al portal de la Tienda</h1>
+                <p>Este portal le permite cargar y visualizar los reportes de ventas mensuales de la tienda.</p>
+                <div class="store-banner">
+                    <i class="fa fa-store logo-icon"></i>
+                    <div class="store-info">
+                        <h2>Ofertas especiales</h2>
+                        <p>Monitoree las ventas y productos más populares de manera sencilla.</p>
+                    </div>
+                </div>
+            </section>
 
-            <!-- Botón con icono -->
-            <label for="csvFile" class="file-btn">
-                <i class="fa fa-upload"></i> Seleccionar archivo
-            </label>
-            <input type="file" id="csvFile" accept=".csv" style="display: none;"/>
+            <!-- Pantalla de reportes -->
+            <section id="report" class="page">
+                <h1>Reporte de Ventas Mensuales</h1>
+                <label for="csvFile" class="file-btn">
+                    <i class="fa fa-upload"></i> Seleccionar archivo
+                </label>
+                <input type="file" id="csvFile" accept=".csv" style="display: none;"/>
 
-            <!-- Filtros -->
-            <div class="filters">
-                <div>
-                    <label for="monthSelector">Seleccionar mes:</label>
-                    <select id="monthSelector">
-                        <option value="Todos">Todos</option>
-                    </select>
+                <div class="filters">
+                    <div>
+                        <label for="monthSelector">Seleccionar mes:</label>
+                        <select id="monthSelector">
+                            <option value="Todos">Todos</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="chartType">Tipo de gráfico:</label>
+                        <select id="chartType">
+                            <option value="bar">Barras</option>
+                            <option value="line">Líneas</option>
+                            <option value="pie">Pastel</option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <label for="chartType">Tipo de gráfico:</label>
-                    <select id="chartType">
-                        <option value="bar">Barras</option>
-                        <option value="line">Líneas</option>
-                        <option value="pie">Pastel</option>
-                    </select>
-                </div>
-            </div>
 
-            <!-- Estadísticas -->
-            <div class="stats">
-                <div class="stat-card">
-                    <h3>Total categorías</h3>
-                    <p id="statCategories">0</p>
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>Total categorías</h3>
+                        <p id="statCategories">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Registros cargados</h3>
+                        <p id="statRecords">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Ingreso promedio</h3>
+                        <p id="statAverage">$0.00</p>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <h3>Registros cargados</h3>
-                    <p id="statRecords">0</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Ingreso promedio</h3>
-                    <p id="statAverage">$0.00</p>
-                </div>
-            </div>
 
-            <!-- Gráfico -->
-            <canvas id="chart"></canvas>
-            <p id="total" class="total"></p>
+                <canvas id="chart"></canvas>
+                <p id="total" class="total"></p>
+            </section>
         </main>
     </div>
     <script src="bundle.js"></script>

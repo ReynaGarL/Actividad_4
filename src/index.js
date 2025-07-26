@@ -96,6 +96,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Navegación entre páginas
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    // Cambiar activo en menú
+    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+
+    // Mostrar la página correspondiente
+    const page = item.dataset.page;
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+  });
+});
+
   // Notificación offline
   window.addEventListener('offline', () => alert('Estás sin conexión, pero la app sigue funcionando'));
 
