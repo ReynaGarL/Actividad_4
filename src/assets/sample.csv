@@ -1,1 +1,7 @@
-Nombre,Valor\nA,10\nB,20\nC,30
+Mes,Categoría,Cantidad,Precio
+Enero,Electrónica,10,500
+Enero,Alimentos,30,20
+Enero,Electrónica,5,500
+Febrero,Alimentos,50,25
+Febrero,Hogar,10,100
+Febrero,Electrónica,3,550

@@ -1,13 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>CSV Visualizer</title>
+    <title>Visualizador de Ventas</title>
 </head>
 <body>
-    <h1>Visualizador CSV</h1>
-    <input type="file" id="csvFile" accept=".csv"/>
-    <canvas id="chart"></canvas>
+    <div class="app-container">
+        <img src="./assets/logo.jpg" alt="Logo" class="logo" />
+        <h1>Reporte de Ventas Mensuales</h1>
+
+        <!-- Carga de archivo CSV -->
+        <input type="file" id="csvFile" accept=".csv"/>
+
+        <!-- Selector de mes -->
+        <div class="chart-controls">
+            <label for="monthSelector">Seleccionar mes:</label>
+            <select id="monthSelector">
+                <option value="Todos">Todos</option>
+            </select>
+        </div>
+
+        <!-- Selector de tipo de gráfico -->
+        <div class="chart-controls">
+            <label for="chartType">Tipo de gráfico:</label>
+            <select id="chartType">
+                <option value="bar">Barras</option>
+                <option value="line">Líneas</option>
+                <option value="pie">Pastel</option>
+            </select>
+        </div>
+
+        <!-- Gráfico -->
+        <canvas id="chart"></canvas>
+        <p id="total" class="total"></p>
+    </div>
     <script src="bundle.js"></script>
 </body>
 </html>
