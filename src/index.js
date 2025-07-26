@@ -1,14 +1,17 @@
 import './style.scss';
 import Chart from 'chart.js/auto';
 import Papa from 'papaparse';
-import logo from './assets/logo.jpg';
-document.querySelector('.logo').src = logo;
+
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('csvFile');
   const ctx = document.getElementById('chart').getContext('2d');
   const monthSelector = document.getElementById('monthSelector');
   const chartTypeSelector = document.getElementById('chartType');
   const totalEl = document.getElementById('total');
+  const statCategories = document.getElementById('statCategories');
+  const statRecords = document.getElementById('statRecords');
+  const statAverage = document.getElementById('statAverage');
+
   let chart;
   let salesData = [];
   let currentChartType = 'bar';
@@ -46,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateChart(data, selectedMonth, chartType) {
     let filtered = selectedMonth === 'Todos' ? data : data.filter(r => r.Mes === selectedMonth);
-
+    
     // Agrupar ingresos por categoría
     const grouped = {};
     filtered.forEach(row => {
@@ -63,6 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
     renderChart(labels, values, chartType);
     const total = values.reduce((a, b) => a + b, 0);
     totalEl.textContent = `Ingreso total: $${total.toFixed(2)}`;
+
+    // Actualizar estadísticas
+    statCategories.textContent = labels.length;
+    statRecords.textContent = filtered.length;
+    statAverage.textContent = values.length > 0 ? `$${(total / values.length).toFixed(2)}` : '$0.00';
   }
 
   function renderChart(labels, values, chartType) {

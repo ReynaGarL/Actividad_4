@@ -1,59 +1,116 @@
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
   margin: 0;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.dashboard {
+  display: flex;
+  width: 100%;
   height: 100vh;
 }
 
-.logo {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  background: white;
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  display: block;
-  margin: 0 auto 1rem auto;
+/* Sidebar */
+.sidebar {
+  background: #2d3436;
+  color: #fff;
+  width: 250px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  .sidebar-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    .logo-icon {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+    }
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 6px;
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
 }
 
-
-
-.app-container {
-  background: #fff;
+/* Main content */
+.main-content {
+  flex: 1;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  width: 400px;
-  text-align: center;
-  img.logo {
-    margin-bottom: 1.5rem;
-  }
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  overflow-y: auto;
+
   h1 {
-    color: #333;
+    margin-top: 0;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .file-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #0984e3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
     margin-bottom: 1.5rem;
   }
 
-  input[type="file"] {
-    margin-bottom: 1rem;
+  .stats {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1.5rem;
+
+    .stat-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      width: 150px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      h3 {
+        margin: 0;
+        font-size: 1rem;
+      }
+      p {
+        font-size: 1.3rem;
+        font-weight: bold;
+      }
+    }
   }
 
-  .chart-controls {
-    margin-bottom: 1rem;
-
-    select {
-      padding: 0.3rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
+  canvas {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
 
   .total {
     font-weight: bold;
-    margin-top: 1rem;
     font-size: 1.2rem;
+    text-align: center;
+    margin-top: 1rem;
   }
 }
